@@ -2,7 +2,7 @@ const form = document.getElementById('wForm');
 const textBox = document.getElementById('wInput');
 const weatherContainer = document.getElementById("weatherContainer");
 const tempBtn = document.getElementById('tempBtn');
-let isMetric = tempBtn.getAttribute('data-celcius');
+let isMetric = tempBtn.getAttribute('data-metric');
 
 const units = {
   metric:{
@@ -40,7 +40,7 @@ function thenableWeatherForecast(place){
 
 async function WeatherForecast(place){
   try{
-  const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=9383185f2eae4ea0baa75154230908&q=${place}&aqi=yes`, {mode:'cors'})
+  const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=9383185f2eae4ea0baa75154230908&q=${place}`, {mode: 'cors'});
   const responseData = await response.json();
   return responseData;
   }
@@ -58,12 +58,12 @@ function displayWeatherData(data, unit){
   const humidity = document.getElementById("humidity");
   const windSpeed = document.getElementById("windSpeed");
   const lastUpdated = document.getElementById("lastUpdated");
-  cityName.textContent = data["location"].name+", "+data["location"].region;
+  cityName.textContent = data["location"].name+(data["location"].region===data["location"].name?"":", "+data["location"].region);
   countryName.textContent = data["location"].country;
   weatherText.textContent = data.current.condition.text;
   weatherImage.src = data.current.condition.icon;
-  weatherTemp.textContent = data.current[`temp_${unit.tempKey}`]+unit.temperature
-  windSpeed.textContent = data.current[`wind_${unit.speed}`]+unit.speed;
-  humidity.textContent = data.current["humidity"]+"%";
+  weatherTemp.textContent = "Temperature: "+data.current[`temp_${unit.tempKey}`]+unit.temperature
+  windSpeed.textContent = "Wind Speed: "+data.current[`wind_${unit.speed}`]+unit.speed;
+  humidity.textContent = "Humidity: "+data.current["humidity"]+"%";
   lastUpdated.textContent = "Last updated: "+data.current.last_updated;
 }
