@@ -3,3 +3,83 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body {
+  height: 100%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color: black;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+  column-gap: 13vw;
+}
+
+input {
+  padding: 16px 8px;
+  background-color: transparent;
+  border: white solid 2px;
+  font-size: large;
+  color: white;
+}
+
+input:focus {
+  border: white solid 2px;
+  color: black;
+  background-color: white;
+}
+
+.backgroundImg {
+  position: fixed;
+  z-index: -1;
+  object-fit: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+button:active {
+  background-color: white;
+  color: black;
+}
+
+button {
+  background-color: transparent;
+  color: white;
+  border: white solid 2px;
+  font-size: large;
+  padding: 16px;
+  transition: all 0.7s;
+}
+
+#weatherContainer {
+  display: grid;
+  background-color: rgba(240, 128, 128, 0.582);
+  border: white solid 2px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  padding: 2rem;
+  text-align: center;
+  color: black;
+  row-gap: 4px;
+}
+
+#weatherInformation {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+#weatherInformation>span {
+  margin-top: 5px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

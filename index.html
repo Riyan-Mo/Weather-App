@@ -4,13 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Forecast</title>
+  <title>Weather</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+  <link rel="icon" href="/favicon.png">
 </head>
 
 <body>
+  <img class="backgroundImg" src="/diego-ph-BCuxVP5WEsU-unsplash.jpg" alt="">
+  <header>
+    <form action="post" id="wForm">
+      <label for="wInput">
+        <input type="text" id="wInput" value="Mumbai" required>
+      </label>
+    </form>
+    <button data-metric="true" type="button" id="tempBtn">Unit</button>
+  </header>
+  <main>
+    <div id="weatherContainer">
 
+      <div>
+        <img id="weatherImage" src="//cdn.weatherapi.com/weather/64x64/day/113.png" alt="">
+      </div>
+
+      <div id="weatherInformation">
+        <h2 id="cityName"></h2>
+        <h2 id="countryName"></h2>
+        <p id="weatherText"></p>
+        <p id="weatherTemp"></p>
+        <p id="humidity"></p>
+        <p id="windSpeed"></p>
+
+        <span id="lastUpdated"><strong><i></i></strong></span>
+
+      </div>
+
+    </div>
+  </main>
 </body>
 
 </html>
