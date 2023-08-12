@@ -40,7 +40,7 @@ function thenableWeatherForecast(place){
 
 async function WeatherForecast(place){
   try{
-  const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=9383185f2eae4ea0baa75154230908&q=${place}&aqi=yes`)
+  const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=9383185f2eae4ea0baa75154230908&q=${place}&aqi=yes`, mode:'cors')
   const responseData = await response.json();
   return responseData;
   }
